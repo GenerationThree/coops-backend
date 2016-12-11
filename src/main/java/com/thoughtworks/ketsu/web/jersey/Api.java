@@ -22,7 +22,7 @@ public class Api extends ResourceConfig {
     @Inject
     public Api(ServiceLocator locator) throws Exception {
         Properties properties = new Properties();
-        String dbname = System.getenv().getOrDefault("DB_NAME", "data_store");
+        String dbname = System.getenv().getOrDefault("DB_NAME", "coops");
         String host = System.getenv().getOrDefault("DB_HOST", "localhost");
         String port = System.getenv().getOrDefault("DB_PORT", "3306");
         String username = System.getenv().getOrDefault("DB_USERNAME", "mysql");
