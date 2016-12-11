@@ -18,7 +18,7 @@ apply plugin: 'idea'
 
 def currentEnv = System.getenv()
 
-mainClassName = "com.thoughtworks.ketsu.MainServer"
+mainClassName = "com.thoughtworks.coops.MainServer"
 
 flyway {
     driver = 'com.mysql.jdbc.Driver'
@@ -36,7 +36,7 @@ repositories {
 }
 
 ext {
-    main='com.thoughtworks.ketsu.MainServer'
+    main='com.thoughtworks.coops.MainServer'
     joda_time = '2.6'
     servlet_api = '3.0.1'
     jaxrs = '2.0.1'
