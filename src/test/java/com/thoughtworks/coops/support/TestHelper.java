@@ -3,7 +3,6 @@ package com.thoughtworks.coops.support;
 import com.thoughtworks.coops.domain.user.User;
 import com.thoughtworks.coops.domain.user.UserId;
 import com.thoughtworks.coops.domain.user.UserRepository;
-import com.thoughtworks.coops.domain.user.UserRole;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,14 +31,14 @@ public class TestHelper {
         }};
     }
 
-    public static User userForTest(String id, String name, UserRole role) {
+    public static User userForTest(String id, String name) {
         String password_123 = "$2a$04$DbgJbGA4dkQSzAvXvJcGBOv5kHuMBzrWfne3x3Cx4JQv4IJcxtBIW";
-        return new User(new UserId(id), name, name + "@tw.com", role, password_123);
+        return new User(new UserId(id), name, "13800000000", name + "@tw.com", password_123, "1");
     }
 
-    public static User userFixture(UserRepository userRepository, UserRole role) {
+    public static User userFixture(UserRepository userRepository) {
         final String id = new Integer(auto_increment_key++).toString();
-        User user = userForTest(id, "name-" + id, role);
+        User user = userForTest(id, "name-" + id);
         userRepository.save(user);
         return user;
     }
@@ -47,7 +46,6 @@ public class TestHelper {
     public static Map<String, Object> userJsonForTest(User user) {
         return new HashMap<String, Object>() {{
             put("id", user.getUserId().id());
-            put("role", user.getRole());
         }};
     }
 }

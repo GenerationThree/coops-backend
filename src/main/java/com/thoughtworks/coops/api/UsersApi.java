@@ -22,9 +22,10 @@ public class UsersApi {
         User user = new User(
                 new UserId(info.getId()),
                 info.getName(),
+                info.getPhone(),
                 info.getEmail(),
-                info.getRole() == null ? UserRole.DEV : info.getRole(),
-                encryptionService.encrypt(info.getPassword()));
+                encryptionService.encrypt(info.getPassword()),
+                info.getKey_id());
         userRepository.save(user);
         return Response.created(routes.userUrl(user)).build();
     }

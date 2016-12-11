@@ -2,7 +2,6 @@ package com.thoughtworks.coops.api;
 
 import com.thoughtworks.coops.domain.user.User;
 import com.thoughtworks.coops.domain.user.UserRepository;
-import com.thoughtworks.coops.domain.user.UserRole;
 import com.thoughtworks.coops.support.ApiSupport;
 import com.thoughtworks.coops.support.ApiTestRunner;
 import com.thoughtworks.coops.support.TestHelper;
@@ -27,10 +26,11 @@ public class UsersApiTest extends ApiSupport {
     public void should_import_user_success() throws Exception {
         Map<String, Object> userInfo = new HashMap<String, Object>() {{
             put("id", "123");
-            put("email", "scxu@thoughtworks.com");
             put("name", "scxu");
-            put("role", "DEV");
+            put("phone", "13800000000");
+            put("email", "scxu@thoughtworks.com");
             put("password", "123");
+            put("key_id", "1");
         }};
 
         final Response post = post("/users", userInfo);
@@ -42,7 +42,6 @@ public class UsersApiTest extends ApiSupport {
         Map<String, Object> userInfo = new HashMap<String, Object>() {{
             put("email", "scxu@thoughtworks.com");
             put("name", "Xu Shanchuan");
-            put("role", "Dev");
         }};
 
         final Response post = post("/users", userInfo);
@@ -54,7 +53,6 @@ public class UsersApiTest extends ApiSupport {
         Map<String, Object> userInfo = new HashMap<String, Object>() {{
             put("id", "123");
             put("name", "Xu Shanchuan");
-            put("role", "Dev");
         }};
 
         final Response post = post("/users", userInfo);
@@ -63,14 +61,13 @@ public class UsersApiTest extends ApiSupport {
 
     @Test
     public void should_400_when_create_user_if_user_exist() throws Exception {
-        final User user = TestHelper.userForTest("123", "scxu", UserRole.DEV);
+        final User user = TestHelper.userForTest("123", "scxu");
         userRepository.save(user);
 
         Map<String, Object> userInfo = new HashMap<String, Object>() {{
             put("id", "123");
             put("name", "scxu");
             put("email", "scxu@tw.com");
-            put("role", "Dev");
         }};
 
         final Response post = post("/users", userInfo);
@@ -79,7 +76,7 @@ public class UsersApiTest extends ApiSupport {
 
     @Test
     public void should_get_user_by_id() throws Exception {
-        final User user = TestHelper.userForTest("123", "scxu", UserRole.DEV);
+        final User user = TestHelper.userForTest("123", "scxu");
         userRepository.save(user);
 
         final Response response = get("/users/" + user.getUserId().id());

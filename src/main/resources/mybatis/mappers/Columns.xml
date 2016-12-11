@@ -6,8 +6,10 @@
     <sql id="user">
         U.id as userId,
         U.name as userName,
+        U.phone as userPhone,
         U.email as userEmail,
         U.password as userPassword,
-        U.role as userRole
+        U.key_id as userKeyId,
+        U.created_at as userCreatedAt
     </sql>
 </mapper>

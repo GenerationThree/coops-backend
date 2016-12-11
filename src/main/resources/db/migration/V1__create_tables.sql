@@ -1,9 +1,11 @@
 CREATE TABLE users (
-  id VARCHAR(255) PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  role VARCHAR(255),
-  password varchar(255)
+  id VARCHAR(40) PRIMARY KEY,
+  name VARCHAR(20) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  email VARCHAR(40) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  key_id VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-insert into users (id, name, email, role, password) values ("001", "admin", "admin@example.com", "BACKGROUND_JOB", "$2a$04$DbgJbGA4dkQSzAvXvJcGBOv5kHuMBzrWfne3x3Cx4JQv4IJcxtBIW");
+insert into users (id, name, phone, email, password, key_id) values ("001", "admin", "13800000000", "admin@example.com", "$2a$04$DbgJbGA4dkQSzAvXvJcGBOv5kHuMBzrWfne3x3Cx4JQv4IJcxtBIW", "1");

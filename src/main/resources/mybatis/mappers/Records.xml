@@ -12,8 +12,10 @@
     <resultMap id="user" type="com.thoughtworks.coops.domain.user.User">
         <result property="name" column="userName"/>
         <result property="email" column="userEmail"/>
-        <result property="role" column="userRole"/>
+        <result property="phone" column="userPhone"/>
         <result property="password" column="userPassword"/>
+        <result property="key_id" column="userKeyId"/>
+        <result property="created_at" column="userCreatedAt"/>
         <association property="userId" resultMap="userId"/>
     </resultMap>
 </mapper>

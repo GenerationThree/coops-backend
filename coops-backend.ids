@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="coops" uuid="da054019-94f4-429c-9316-ce4b38ed7629">
+    <database-info product="MySQL" version="5.6.23" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="coops"/>
+      <table id="2" parent="1" name="schema_version"/>
+      <table id="3" parent="1" name="users"/>
+      <column id="4" parent="2" name="version_rank">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="5" parent="2" name="installed_rank">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="6" parent="2" name="version">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="7" parent="2" name="description">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="8" parent="2" name="type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="9" parent="2" name="script">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1000)</data-type>
+      </column>
+      <column id="10" parent="2" name="checksum">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="11" parent="2" name="installed_by">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="12" parent="2" name="installed_on">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="13" parent="2" name="execution_time">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="14" parent="2" name="success">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <index id="15" parent="2" name="schema_version_ir_idx">
+        <columns>installed_rank</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="16" parent="2" name="schema_version_s_idx">
+        <columns>success</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="17" parent="2" name="schema_version_vr_idx">
+        <columns>version_rank</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="18" parent="2" name="PRIMARY">
+        <columns>version</columns>
+        <primary>1</primary>
+      </key>
+      <column id="19" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="20" parent="3" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="21" parent="3" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="22" parent="3" name="role">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="23" parent="3" name="password">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="24" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
